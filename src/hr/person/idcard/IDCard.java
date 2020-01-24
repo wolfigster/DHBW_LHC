@@ -14,4 +14,11 @@ public class IDCard {
     private ArrayList<Permission> permissionList;
     private boolean isLocked;
 
+    public IDCard(String id, Date validFrom, Date validUntil, ArrayList<Permission> permissionList, boolean isLocked) {
+        this.id = id;
+        this.validFrom = validFrom;
+        this.validUntil = validUntil;
+        this.permissionList = permissionList;
+        this.isLocked = isLocked;
+    }
 }

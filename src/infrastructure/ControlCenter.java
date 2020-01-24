@@ -1,6 +1,8 @@
 package infrastructure;
 
-public class ControlCenter {
+public enum ControlCenter {
+    instance
+    ;
 
     private String roomID = "C01";
 
