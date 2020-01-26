@@ -1,5 +1,12 @@
 package main;
 
+import human_resources.ReceptionStaff;
+import human_resources.Visitor;
+import infrastructure.security.EmployeeManagement;
+import infrastructure.security.Reception;
+import infrastructure.security.Touchpad;
+import infrastructure.security.Writer;
+
 public class Application {
 
     public static void main(String... args) {
@@ -9,11 +16,15 @@ public class Application {
 
     public static void init() {
         System.out.println("Initialize the environment");
-
+        EmployeeManagement.instance.addEmployee(new ReceptionStaff(0, "ReceptionStaff01", Helper.createTwoDimensionalIntegerArray(10, 10), true, false, false));
+        Reception.instance.initialize((ReceptionStaff) EmployeeManagement.instance.getEmployeeFromName("ReceptionStaff01"), new Touchpad(), new Writer());
     }
 
     public static void useCase1() {
         System.out.println("Starting useCase1: Creation of a visitor ID-Card");
+        Visitor visitor01 = new Visitor(1, "Visitor01", Helper.createTwoDimensionalIntegerArray(10, 10));
+        Reception.instance.getReceptionStaff().createIDCard();
+        Reception.instance.getReceptionStaff().assignLastIDCard(visitor01);
 
     }
 
