@@ -1,15 +1,13 @@
 package infrastructure.security;
 
 import human_resources.Employee;
+import human_resources.SecurityOfficer;
 
-import java.util.HashMap;
-
-public enum Management {
+public enum SecurityCenter {
     instance
     ;
 
-    private HashMap<Integer, Employee> employeeMap = new HashMap<Integer, Employee>();
-    private HashMap<Integer, IDCard> idCardHashMap = new HashMap<Integer, IDCard>();
+    private SecurityOfficer securityOfficer;
 
     public void createEmployee(String name) {
 
@@ -20,10 +18,13 @@ public enum Management {
     }
 
     public void lockIDCard(IDCard idCard) {
+        idCard.setLocked(true);
+    }
 
+    public void unlockIDCard(IDCard idCard) {
+        idCard.setLocked(false);
     }
 
     public void clearIDCard(IDCard idCard) {
-
     }
 }
