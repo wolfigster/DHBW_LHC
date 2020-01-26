@@ -5,10 +5,9 @@ import java.util.Base64;
 
 import javax.crypto.Cipher;
 
-public class AES implements ICryption {
+public class AES {
 
-    @Override
-    public String encrypt(String string) {
+    public static String encrypt(String string) {
         try {
             Cipher cipher = Cipher.getInstance("cryptography.AES/ECB/PKCS5Padding");
             cipher.init(Cipher.ENCRYPT_MODE, KeyStore.AES.getSecretKeySpec());
@@ -19,8 +18,7 @@ public class AES implements ICryption {
         return null;
     }
 
-    @Override
-    public String decrypt(String string) {
+    public static String decrypt(String string) {
         try {
             Cipher cipher = Cipher.getInstance("cryptography.AES/ECB/PKCS5PADDING");
             cipher.init(Cipher.DECRYPT_MODE, KeyStore.AES.getSecretKeySpec());

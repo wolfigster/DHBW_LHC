@@ -4,6 +4,13 @@ public class USP {
 
     private boolean isStandBy;
     private boolean isActivated;
+    private Battery[] batteries;
+
+    public USP(boolean isStandBy, boolean isActivated, Battery[] batteries) {
+        this.isStandBy = isStandBy;
+        this.isActivated = isActivated;
+        this.batteries = batteries;
+    }
 
     public void determineChargeState() {
 
