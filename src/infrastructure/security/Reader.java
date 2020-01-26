@@ -6,6 +6,10 @@ public class Reader {
 
     private String currentEmployeeIris;
 
+    public Reader() {
+
+    }
+
     public String scanPassport(Passport passport) {
 
         return currentEmployeeIris;
@@ -20,7 +24,11 @@ public class Reader {
 
     }
 
-    public void remiveIDCard() {
+    public void removeIDCard() {
 
+    }
+
+    public String getCurrentEmployeeIris() {
+        return this.currentEmployeeIris;
     }
 }
