@@ -1,3 +1,7 @@
+package infrastructure.security;
+
+import human_resources.Employee;
+
 public class Reader {
 
     private String currentEmployeeIris;

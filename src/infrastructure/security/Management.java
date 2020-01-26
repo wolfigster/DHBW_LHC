@@ -1,3 +1,7 @@
+package infrastructure.security;
+
+import human_resources.Employee;
+
 import java.util.HashMap;
 
 public enum Management {

@@ -1,3 +1,5 @@
+package infrastructure;
+
 public class Building {
 
     private String owner = "CERN";

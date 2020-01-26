@@ -1,3 +1,8 @@
+package infrastructure.lhc;
+
+import infrastructure.lhc.Experiment;
+import infrastructure.security.Reader;
+
 import java.util.LinkedList;
 
 public class Detector {

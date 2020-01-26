@@ -1,3 +1,7 @@
+package infrastructure.security;
+
+import infrastructure.security.Permission;
+
 import java.util.ArrayList;
 import java.util.Date;
 
