@@ -4,7 +4,7 @@ import infrastructure.security.Reader;
 
 import java.util.LinkedList;
 
-public class Detector {
+public class Detector implements IDetector {
 
     private static String higgsBosonStructure = "higgs";
     private boolean isActivated;
