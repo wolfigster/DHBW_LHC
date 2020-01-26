@@ -9,15 +9,23 @@ public abstract class Person {
     protected int[][] iris = new int[10][10];
     protected IDCard idCard;
 
-    protected int getId() {
+    public int getId() {
         return this.id;
     }
 
-    protected String getName() {
+    public String getName() {
         return this.name;
     }
 
-    protected int[][] getIris() {
+    public int[][] getIris() {
         return this.iris;
+    }
+
+    public IDCard getIdCard() {
+        return this.idCard;
+    }
+
+    public void setIdCard(IDCard idCard) {
+        this.idCard = idCard;
     }
 }
