@@ -2,10 +2,7 @@ package main;
 
 import human_resources.ReceptionStaff;
 import human_resources.Visitor;
-import infrastructure.security.EmployeeManagement;
-import infrastructure.security.Reception;
-import infrastructure.security.Touchpad;
-import infrastructure.security.Writer;
+import infrastructure.security.*;
 
 public class Application {
 
@@ -18,6 +15,9 @@ public class Application {
         System.out.println("Initialize the environment");
         EmployeeManagement.instance.addEmployee(new ReceptionStaff(0, "ReceptionStaff01", Helper.createTwoDimensionalIntegerArray(10, 10), true, false, false));
         Reception.instance.initialize((ReceptionStaff) EmployeeManagement.instance.getEmployeeFromName("ReceptionStaff01"), new Touchpad(), new Writer());
+        for(int i = 0; i < 20; i++) {
+            IDCardManagement.instance.createIDCard();
+        }
     }
 
     public static void useCase1() {

@@ -1,5 +1,7 @@
 package infrastructure.security;
 
+import main.Helper;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,6 +17,10 @@ public enum IDCardManagement {
 
     public void removeIDCard(IDCard idCard) {
         idCardMap.values().remove(idCard);
+    }
+
+    public void createIDCard() {
+        idCardMap.put(idCardMap.size() + 1, new IDCard(Helper.getAlphaNumericString(6)));
     }
 
     public IDCard getLastIDCard() {
