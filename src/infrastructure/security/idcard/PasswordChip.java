@@ -2,7 +2,7 @@ package infrastructure.security.idcard;
 
 public class PasswordChip implements IChip {
 
-    private String password;
+    private String password = "";
 
     public PasswordChip() {
 

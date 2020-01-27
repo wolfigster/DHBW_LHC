@@ -1,17 +1,34 @@
 package human_resources;
 
+import infrastructure.security.idcard.EmployeeIDCard;
+
 public class Researcher extends Employee {
 
     private boolean isSenior;
 
-    public Researcher(int id, String name, int[][] iris, boolean isManager, boolean isMentor, boolean hasBudgetResponsibility, boolean isSenior) {
-        this.id = id;
-        this.name = name;
-        this.iris = iris;
-        this.isManager = isManager;
-        this.isMentor = isMentor;
-        this.hasBudgetResponsibility = hasBudgetResponsibility;
+    public Researcher(int id, String name, int[][] iris, boolean isManager, boolean isMentor, boolean hasBudgetResponsibility, boolean isSenior, EmployeeIDCard employeeIDCard) {
+        super(id, name, iris, isManager, isMentor, hasBudgetResponsibility, employeeIDCard);
         this.isSenior = isSenior;
+    }
+
+    public Researcher(int id, String name, int[][] iris, boolean isManager, boolean isMentor, boolean hasBudgetResponsibility, boolean isSenior) {
+        super(id, name, iris, isManager, isMentor, hasBudgetResponsibility);
+        this.isSenior = isSenior;
+    }
+
+    public Researcher(int id, String name, int[][] iris) {
+        super(id, name, iris);
+        this.isSenior = false;
+    }
+
+    public Researcher(String name) {
+        super(name);
+        this.isSenior = false;
+    }
+
+    public Researcher() {
+        super();
+        this.isSenior = false;
     }
 
     public boolean isSenior() {

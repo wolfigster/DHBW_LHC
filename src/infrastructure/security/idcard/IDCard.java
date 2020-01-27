@@ -10,16 +10,19 @@ public abstract class IDCard {
     private String id;
     private Date validFrom;
     private Date validUntil;
-    private int[][] irisStructure = new int[10][10];
-    private ArrayList<Permission> permissionList;
+    private int[][] irisStructure; // = new int[10][10];
+    private ArrayList<Permission> permissionList = new ArrayList<>();
     private boolean isLocked;
+    private PasswordChip passwordChip;
 
     public IDCard() {
         this.id = Helper.getAlphaNumericString(6);
         this.validFrom = new Date();
         this.validUntil = new Date();
+        this.irisStructure = new int[10][10];
         this.permissionList.add(Permission.Visitor);
         this.isLocked = false;
+        this.passwordChip = new PasswordChip();
     }
 
     public String getId() {
@@ -64,5 +67,13 @@ public abstract class IDCard {
 
     public void setLocked(boolean locked) {
         this.isLocked = locked;
+    }
+
+    public PasswordChip getPasswordChip() {
+        return passwordChip;
+    }
+
+    public void setPasswordChip(PasswordChip passwordChip) {
+        this.passwordChip = passwordChip;
     }
 }
