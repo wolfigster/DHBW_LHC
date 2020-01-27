@@ -1,10 +1,21 @@
 package human_resources;
 
+import infrastructure.security.idcard.EmployeeIDCard;
+
 public abstract class Employee extends Person implements IEmployee  {
 
     protected boolean isManager;
     protected boolean isMentor;
     protected boolean hasBudgetResponsibility;
+    protected EmployeeIDCard employeeIDCard;
+
+    public Employee(int id, String name, int[][] iris, boolean isManager, boolean isMentor, boolean hasBudgetResponsibility, EmployeeIDCard employeeIDCard) {
+        super(id, name, iris);
+        this.isManager = isManager;
+        this.isMentor = isMentor;
+        this.hasBudgetResponsibility = hasBudgetResponsibility;
+        this.employeeIDCard = employeeIDCard;
+    }
 
     public Employee(int id, String name, int[][] iris, boolean isManager, boolean isMentor, boolean hasBudgetResponsibility) {
         super(id, name, iris);
@@ -62,6 +73,16 @@ public abstract class Employee extends Person implements IEmployee  {
     @Override
     public void setBudgetResponsibility(boolean hasBudgetResponsibility) {
         this.hasBudgetResponsibility = hasBudgetResponsibility;
+    }
+
+    @Override
+    public EmployeeIDCard getEmployeeIDCard() {
+        return null;
+    }
+
+    @Override
+    public void setEmployeeIDCard(EmployeeIDCard employeeIDCard) {
+
     }
 
 }

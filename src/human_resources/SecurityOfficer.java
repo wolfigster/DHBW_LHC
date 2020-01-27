@@ -1,8 +1,15 @@
 package human_resources;
 
+import infrastructure.security.idcard.EmployeeIDCard;
+
 public class SecurityOfficer extends Employee {
 
     private boolean hasWeapon;
+
+    public SecurityOfficer(int id, String name, int[][] iris, boolean isManager, boolean isMentor, boolean hasBudgetResponsibility, boolean hasWeapon, EmployeeIDCard employeeIDCard) {
+        super(id, name, iris, isManager, isMentor, hasBudgetResponsibility, employeeIDCard);
+        this.hasWeapon = hasWeapon;
+    }
 
     public SecurityOfficer(int id, String name, int[][] iris, boolean isManager, boolean isMentor, boolean hasBudgetResponsibility, boolean hasWeapon) {
         super(id, name, iris, isManager, isMentor, hasBudgetResponsibility);

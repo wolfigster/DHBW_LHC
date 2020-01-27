@@ -1,11 +1,19 @@
 package human_resources;
 
+import infrastructure.security.idcard.EmployeeIDCard;
+
 import java.util.Date;
 
 public class ScientificAssistant extends Employee {
 
     private Date periodFrom;
     private Date periodUntil;
+
+    public ScientificAssistant(int id, String name, int[][] iris, boolean isManager, boolean isMentor, boolean hasBudgetResponsibility, Date periodFrom, Date periodUntil, EmployeeIDCard employeeIDCard) {
+        super(id, name, iris, isManager, isMentor, hasBudgetResponsibility, employeeIDCard);
+        this.periodFrom = periodFrom;
+        this.periodUntil = periodUntil;
+    }
 
     public ScientificAssistant(int id, String name, int[][] iris, boolean isManager, boolean isMentor, boolean hasBudgetResponsibility, Date periodFrom, Date periodUntil) {
         super(id, name, iris, isManager, isMentor, hasBudgetResponsibility);
