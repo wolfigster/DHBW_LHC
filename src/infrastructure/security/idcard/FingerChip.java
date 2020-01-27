@@ -2,7 +2,7 @@ package infrastructure.security.idcard;
 
 public class FingerChip implements IChip {
 
-    private String fingerprint;
+    private String fingerprint = "";
 
     public FingerChip() {
 
