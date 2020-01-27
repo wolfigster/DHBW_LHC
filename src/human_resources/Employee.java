@@ -1,6 +1,7 @@
 package human_resources;
 
 import infrastructure.security.idcard.EmployeeIDCard;
+import infrastructure.security.management.EmployeeManagement;
 
 public abstract class Employee extends Person implements IEmployee  {
 
@@ -15,6 +16,7 @@ public abstract class Employee extends Person implements IEmployee  {
         this.isMentor = isMentor;
         this.hasBudgetResponsibility = hasBudgetResponsibility;
         this.employeeIDCard = employeeIDCard;
+        EmployeeManagement.instance.addEmployee(this);
     }
 
     public Employee(int id, String name, int[][] iris, boolean isManager, boolean isMentor, boolean hasBudgetResponsibility) {
@@ -22,6 +24,7 @@ public abstract class Employee extends Person implements IEmployee  {
         this.isManager = isManager;
         this.isMentor = isMentor;
         this.hasBudgetResponsibility = hasBudgetResponsibility;
+        EmployeeManagement.instance.addEmployee(this);
     }
 
     public Employee(int id, String name, int[][] iris) {
@@ -29,6 +32,7 @@ public abstract class Employee extends Person implements IEmployee  {
         this.isManager = false;
         this.isMentor = false;
         this.hasBudgetResponsibility = false;
+        EmployeeManagement.instance.addEmployee(this);
     }
 
     public Employee(String name) {
@@ -36,6 +40,7 @@ public abstract class Employee extends Person implements IEmployee  {
         this.isManager = false;
         this.isMentor = false;
         this.hasBudgetResponsibility = false;
+        EmployeeManagement.instance.addEmployee(this);
     }
 
     public Employee() {
@@ -43,6 +48,7 @@ public abstract class Employee extends Person implements IEmployee  {
         this.isManager = false;
         this.isMentor = false;
         this.hasBudgetResponsibility = false;
+        EmployeeManagement.instance.addEmployee(this);
     }
 
     @Override

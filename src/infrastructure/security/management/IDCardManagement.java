@@ -1,5 +1,6 @@
 package infrastructure.security.management;
 
+import infrastructure.security.idcard.EmployeeIDCard;
 import infrastructure.security.idcard.IDCard;
 import infrastructure.security.idcard.VisitorIDCard;
 
@@ -11,6 +12,7 @@ public enum IDCardManagement {
     ;
 
     private Map<Integer, IDCard> idCardMap = new HashMap<>();
+    private Map<Integer, EmployeeIDCard> employeeIDCardMap = new HashMap<>();
 
     public void addIDCard(IDCard idCard) {
         idCardMap.put(idCardMap.size() +1, idCard);
@@ -20,8 +22,22 @@ public enum IDCardManagement {
         idCardMap.values().remove(idCard);
     }
 
+    public void addEmployeeIDCard(EmployeeIDCard employeeIDCard) {
+        employeeIDCardMap.put(employeeIDCardMap.size() +1, employeeIDCard);
+    }
+
+    public void removeEmployeeIDCard(EmployeeIDCard employeeIDCard) {
+        employeeIDCardMap.values().remove(employeeIDCard);
+    }
+
     public void createIDCard() {
         idCardMap.put(idCardMap.size() + 1, new VisitorIDCard());
+    }
+
+    public EmployeeIDCard createEmployeeIDCard() {
+        EmployeeIDCard employeeIDCard = new EmployeeIDCard();
+        employeeIDCardMap.put(employeeIDCardMap.size() + 1, employeeIDCard);
+        return employeeIDCard;
     }
 
     public IDCard getLastIDCard() {
