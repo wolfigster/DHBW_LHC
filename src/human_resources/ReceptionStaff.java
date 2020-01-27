@@ -31,9 +31,7 @@ public class ReceptionStaff extends Employee {
     public IDCard createIDCard(Person person) {
         IDCard idCard = IDCardManagement.instance.getFreeIDCard();
         idCard.setIrisStructure(person.iris);
-        String password = Reception.instance.getReader().getTouchpad().read();
-        String encrypted = AES.encrypt(password);
-        idCard.getPasswordChip().write(encrypted);
+        idCard.getPasswordChip().write(AES.encrypt(Reception.instance.getReader().getTouchpad().read()));
         return idCard;
     }
 
