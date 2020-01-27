@@ -2,6 +2,7 @@ package human_resources;
 
 import infrastructure.security.IDCard;
 import infrastructure.security.IDCardManagement;
+import infrastructure.security.VisitorIDCard;
 import main.Helper;
 
 public class ReceptionStaff extends Employee {
@@ -16,7 +17,7 @@ public class ReceptionStaff extends Employee {
     }
 
     public void createIDCard() {
-        IDCardManagement.instance.addIDCard(new IDCard(Helper.getAlphaNumericString(6)));
+        IDCardManagement.instance.addIDCard(new VisitorIDCard());
     }
 
     public void assignIDCard(IDCard idCard, Visitor visitor) {

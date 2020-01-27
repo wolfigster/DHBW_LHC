@@ -1,9 +1,11 @@
 package infrastructure.security;
 
+import main.Helper;
+
 import java.util.ArrayList;
 import java.util.Date;
 
-public class IDCard {
+public abstract class IDCard {
 
     private String id;
     private Date validFrom;
@@ -11,15 +13,13 @@ public class IDCard {
     private int[][] irisStructure = new int[10][10];
     private ArrayList<Permission> permissionList;
     private boolean isLocked;
-    private Chip chip;
 
-    public IDCard(String id) {
-        this.id = id;
+    public IDCard() {
+        this.id = Helper.getAlphaNumericString(6);
         this.validFrom = new Date();
         this.validUntil = new Date();
         this.permissionList.add(Permission.Visitor);
         this.isLocked = false;
-        this.chip = new Chip();
     }
 
     public String getId() {
@@ -64,13 +64,5 @@ public class IDCard {
 
     public void setLocked(boolean locked) {
         this.isLocked = locked;
-    }
-
-    public Chip getChip() {
-        return this.chip;
-    }
-
-    public void setChip(Chip chip) {
-        this.chip = chip;
     }
 }
