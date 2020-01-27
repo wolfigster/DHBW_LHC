@@ -1,6 +1,6 @@
 import java.util.Date;
 
-public class SecurityAssistant extends Employee {
+public class ScientificAssistant extends Employee {
 
     private Date periodFrom;
     private Date periodUntil;

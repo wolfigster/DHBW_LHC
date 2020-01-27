@@ -20,6 +20,10 @@ public class Ring {
 
     }
 
+    public void increaseEnergy(int delta) {
+
+    }
+
     public void collide(Proton proton1, Proton proton2) {
 
     }
@@ -27,5 +31,9 @@ public class Ring {
     public int decreaseEnergy() {
 
         return energy;
+    }
+
+    public void shutdown() {
+
     }
 }
