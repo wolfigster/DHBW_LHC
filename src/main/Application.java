@@ -50,7 +50,6 @@ public class Application {
         ReceptionStaff receptionStaff01 = new ReceptionStaff("ReceptionStaff01");
         Reception.instance.initialize(receptionStaff01);
 
-        //SecurityOfficer securityOfficer01 = new SecurityOfficer("SecurityOfficer01");
         SecurityStaff securityStaff01 = new SecurityStaff("SecurityStaff01");
         SecurityCenter.instance.initialize(securityStaff01);
     }
@@ -66,7 +65,7 @@ public class Application {
         System.out.println("Starting useCase2: Creation of an employee ID-Card");
         Researcher researcher01 = new Researcher("Researcher01");
         EmployeeIDCard employeeIDCard = SecurityCenter.instance.getSecurityStaff().createEmployeeIDCard(researcher01);
-        SecurityCenter.instance.getSecurityStaff().assignEmployeeIDCard(employeeIDCard, researcher01);
+        //SecurityCenter.instance.getSecurityStaff().assignEmployeeIDCard(employeeIDCard, researcher01);
     }
 
     public static void useCase3() {
@@ -74,7 +73,7 @@ public class Application {
         Visitor visitor01 = new Visitor("Visitor01");
         IDCard idCard = Reception.instance.getReceptionStaff().createIDCard(visitor01);
         Reception.instance.getReceptionStaff().assignIDCard(idCard, visitor01);
-        System.out.println(SecurityCenter.instance.getReader().hasAccess(visitor01)); // false
+        //System.out.println(SecurityCenter.instance.getReader().hasAccess(visitor01)); // false
 
     }
 
