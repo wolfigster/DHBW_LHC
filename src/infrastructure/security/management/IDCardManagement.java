@@ -7,31 +7,47 @@ import infrastructure.security.idcard.VisitorIDCard;
 import java.util.HashMap;
 import java.util.Map;
 
-public enum IDCardManagement {
+public enum IDCardManagement implements IIDCardManagement {
     instance
     ;
 
-    private Map<Integer, IDCard> idCardMap = new HashMap<>();
+    private Map<Integer, VisitorIDCard> visitorIDCardMap = new HashMap<>();
     private Map<Integer, EmployeeIDCard> employeeIDCardMap = new HashMap<>();
 
-    public void addIDCard(IDCard idCard) {
-        idCardMap.put(idCardMap.size() +1, idCard);
+    @Override
+    public void addIDCard(VisitorIDCard visitorIDCard) {
+        visitorIDCardMap.put(visitorIDCardMap.size() +1, visitorIDCard);
     }
 
-    public void removeIDCard(IDCard idCard) {
-        idCardMap.values().remove(idCard);
+    @Override
+    public void removeIDCard(VisitorIDCard visitorIDCard) {
+        visitorIDCardMap.values().remove(visitorIDCard);
     }
 
-    public void addEmployeeIDCard(EmployeeIDCard employeeIDCard) {
+    @Override
+    public void addIDCard(EmployeeIDCard employeeIDCard) {
         employeeIDCardMap.put(employeeIDCardMap.size() +1, employeeIDCard);
     }
 
-    public void removeEmployeeIDCard(EmployeeIDCard employeeIDCard) {
+    @Override
+    public void removeIDCard(EmployeeIDCard employeeIDCard) {
         employeeIDCardMap.values().remove(employeeIDCard);
     }
 
-    public void createIDCard() {
-        idCardMap.put(idCardMap.size() + 1, new VisitorIDCard());
+    @Override
+    public VisitorIDCard getVisitorIDCard(String id) {
+        return null;
+    }
+
+    @Override
+    public EmployeeIDCard getEmployeeIDCardFromID(String id) {
+        return null;
+    }
+
+    public VisitorIDCard createVisitorIDCard() {
+        VisitorIDCard visitorIDCard = new VisitorIDCard();
+        visitorIDCardMap.put(visitorIDCardMap.size() + 1, visitorIDCard);
+        return visitorIDCard;
     }
 
     public EmployeeIDCard createEmployeeIDCard() {
@@ -40,12 +56,12 @@ public enum IDCardManagement {
         return employeeIDCard;
     }
 
-    public IDCard getLastIDCard() {
-        return idCardMap.get(idCardMap.size());
+    public VisitorIDCard getLastVisitorIDCard() {
+        return visitorIDCardMap.get(visitorIDCardMap.size());
     }
 
-    public IDCard getFreeIDCard() {
-        for (Map.Entry<Integer, IDCard> entry : idCardMap.entrySet()) {
+    public VisitorIDCard getFreeVisitorIDCard() {
+        for (Map.Entry<Integer, VisitorIDCard> entry : visitorIDCardMap.entrySet()) {
             if(!entry.getValue().getPasswordChip().read().equals("")) {
                 continue;
             }
