@@ -35,7 +35,7 @@ public class Reader implements IReader {
 
     @Override
     public void removeIDCard() {
-
+        currentIDCard = null;
     }
 
     @Override
