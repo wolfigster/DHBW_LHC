@@ -4,6 +4,7 @@ import infrastructure.security.Reception;
 import infrastructure.security.crypto.AES;
 import infrastructure.security.idcard.EmployeeIDCard;
 import infrastructure.security.idcard.IDCard;
+import infrastructure.security.idcard.VisitorIDCard;
 import infrastructure.security.management.IDCardManagement;
 
 public class ReceptionStaff extends Employee {
@@ -28,14 +29,13 @@ public class ReceptionStaff extends Employee {
         super();
     }
 
-    public IDCard createIDCard(Person person) {
-        IDCard idCard = IDCardManagement.instance.getFreeIDCard();
-        idCard.setIrisStructure(person.iris);
-        Reception.instance.getWriter().writeOnIDCardPWChip(idCard, AES.encrypt(Reception.instance.getReader().getTouchpad().read()));
-        return idCard;
+    public VisitorIDCard createIDCard(Person person) {
+        VisitorIDCard visitorIDCard = IDCardManagement.instance.getFreeVisitorIDCard();
+        Reception.instance.getWriter().writePasswordOnIDCard(visitorIDCard, AES.encrypt(Reception.instance.getReader().getTouchpad().read()));
+        return visitorIDCard;
     }
 
-    public void assignIDCard(IDCard idCard, Person person) {
-        person.setIdCard(idCard);
+    public void assignIDCard(VisitorIDCard visitorIDCard, Person person) {
+        person.setIdCard(visitorIDCard);
     }
 }
