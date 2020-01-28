@@ -6,7 +6,6 @@ import infrastructure.security.crypto.MD5Hash;
 import infrastructure.security.idcard.EmployeeIDCard;
 import infrastructure.security.idcard.IDCard;
 import infrastructure.security.idcard.Permission;
-import infrastructure.security.management.EmployeeManagement;
 import infrastructure.security.management.IDCardManagement;
 
 import java.util.ArrayList;
@@ -55,8 +54,8 @@ public class SecurityStaff extends Employee {
             employeeIDCard.setPermissionList(permissionList);
         }
         employeeIDCard.setIrisStructure(employee.iris);
-        Reception.instance.getWriter().writeOnIDCardPWChip(employeeIDCard, AES.encrypt(Reception.instance.getReader().getTouchpad().read()));
-        Reception.instance.getWriter().writeOnIDCardFNChip(employeeIDCard, MD5Hash.getMd5(employee.getName()));
+        Reception.instance.getWriter().writePasswordOnIDCard(employeeIDCard, AES.encrypt("helloLHC2020"));
+        Reception.instance.getWriter().writeFingerprintOnEmployeeCard(employeeIDCard, MD5Hash.getMd5(employee.getName()));
         return employeeIDCard;
     }
 
