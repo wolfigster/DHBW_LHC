@@ -1,19 +1,23 @@
 package human_resources;
 
+import infrastructure.lhc.IRODetector;
 import infrastructure.security.idcard.EmployeeIDCard;
 
 public class Researcher extends Employee {
 
     private boolean isSenior;
+    private IRODetector iroDetector;
 
-    public Researcher(int id, String name, int[][] iris, boolean isManager, boolean isMentor, boolean hasBudgetResponsibility, boolean isSenior, EmployeeIDCard employeeIDCard) {
+    public Researcher(int id, String name, int[][] iris, boolean isManager, boolean isMentor, boolean hasBudgetResponsibility, boolean isSenior, EmployeeIDCard employeeIDCard, IRODetector iroDetector) {
         super(id, name, iris, isManager, isMentor, hasBudgetResponsibility, employeeIDCard);
         this.isSenior = isSenior;
+        this.iroDetector = iroDetector;
     }
 
-    public Researcher(int id, String name, int[][] iris, boolean isManager, boolean isMentor, boolean hasBudgetResponsibility, boolean isSenior) {
+    public Researcher(int id, String name, int[][] iris, boolean isManager, boolean isMentor, boolean hasBudgetResponsibility, boolean isSenior, IRODetector iroDetector) {
         super(id, name, iris, isManager, isMentor, hasBudgetResponsibility);
         this.isSenior = isSenior;
+        this.iroDetector = iroDetector;
     }
 
     public Researcher(int id, String name, int[][] iris) {
@@ -37,5 +41,13 @@ public class Researcher extends Employee {
 
     public void setSenior(boolean senior) {
         this.isSenior = senior;
+    }
+
+    public IRODetector getIroDetector() {
+        return iroDetector;
+    }
+
+    public void setIroDetector(IRODetector iroDetector) {
+        this.iroDetector = iroDetector;
     }
 }
