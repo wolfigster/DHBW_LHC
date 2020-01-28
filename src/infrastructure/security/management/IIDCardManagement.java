@@ -5,12 +5,6 @@ import infrastructure.security.idcard.VisitorIDCard;
 
 public interface IIDCardManagement extends IROIDCardManagement {
 
-    VisitorIDCard getVisitorIDCard(String id);
-    EmployeeIDCard getEmployeeIDCardFromID(String id);
-
-    VisitorIDCard getLastVisitorIDCard();
-    VisitorIDCard getFreeVisitorIDCard();
-
     void addIDCard(VisitorIDCard visitorIDCard);
     void removeIDCard(VisitorIDCard visitorIDCard);
     VisitorIDCard createVisitorIDCard();

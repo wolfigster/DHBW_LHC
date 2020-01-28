@@ -22,11 +22,12 @@ public class Detector implements IDetector {
         return this.isActivated;
     }
 
-    public LinkedList<Experiment> getExperimentList() {
-        return this.experimentList;
-    }
-
     public Reader getReader() {
         return this.reader;
+    }
+
+    @Override
+    public LinkedList<Experiment> getExperimentList() {
+        return this.experimentList;
     }
 }
