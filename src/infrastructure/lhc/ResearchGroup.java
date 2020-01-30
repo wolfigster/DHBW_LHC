@@ -1,4 +1,5 @@
-package infrastructure;
+package infrastructure.lhc;
 
 public class ResearchGroup {
+
 }

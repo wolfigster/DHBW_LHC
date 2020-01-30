@@ -1,10 +1,13 @@
 package infrastructure.lhc;
 
+import com.google.common.eventbus.Subscribe;
 import infrastructure.lhc.experiment.Experiment;
+import infrastructure.lhc.experiment.RunExperimentFull;
+import infrastructure.lhc.experiment.RunExperimentPartial;
 import infrastructure.lhc.hadron.Proton;
 import infrastructure.lhc.hadron.ProtonTrap;
 
-public class Ring {
+public class Ring extends Subscriber {
 
     private boolean isActivated;
     private Experiment currentExperiment;
@@ -77,5 +80,15 @@ public class Ring {
 
     public Detector getDetector() {
         return this.detector;
+    }
+
+    @Subscribe
+    public void receive(RunExperimentFull experimentFull) {
+
+    }
+
+    @Subscribe
+    public void receive(RunExperimentPartial experimentPartial) {
+
     }
 }

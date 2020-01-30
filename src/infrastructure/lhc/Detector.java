@@ -1,11 +1,12 @@
 package infrastructure.lhc;
 
+import com.google.common.eventbus.Subscribe;
 import infrastructure.lhc.experiment.Experiment;
 import infrastructure.security.device.Reader;
 
 import java.util.LinkedList;
 
-public class Detector implements IDetector {
+public class Detector extends Subscriber implements IDetector {
 
     private static String higgsBosonStructure = "higgs";
     private boolean isActivated;
@@ -29,5 +30,10 @@ public class Detector implements IDetector {
     @Override
     public LinkedList<Experiment> getExperimentList() {
         return this.experimentList;
+    }
+
+    @Subscribe
+    public void receive(Analyse analyse) {
+
     }
 }
