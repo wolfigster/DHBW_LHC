@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BoyerMoore/BoyerMoore.iml" filepath="$PROJECT_DIR$/BoyerMoore/BoyerMoore.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KnuthMorrisPratt/KnuthMorrisPratt.iml" filepath="$PROJECT_DIR$/KnuthMorrisPratt/KnuthMorrisPratt.iml" />
       <module fileurl="file://$PROJECT_DIR$/LHC_2227134.iml" filepath="$PROJECT_DIR$/LHC_2227134.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Native/Native.iml" filepath="$PROJECT_DIR$/Native/Native.iml" />
     </modules>
   </component>
 </project>
