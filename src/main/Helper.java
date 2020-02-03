@@ -41,12 +41,12 @@ public class Helper {
 
     public static int[][] createTwoDimensionalIntegerArray(int row, int col) {
         Random random = new Random();
-        int[][] iris = new int[row][col];
+        int[][] arr = new int[row][col];
         for(int i = 0; i < col; i++) {
             for(int j = 0; j < row; j++) {
-                iris[i][j] = random.nextInt(10);
+                arr[i][j] = random.nextInt(10);
             }
         }
-        return iris;
+        return arr;
     }
 }

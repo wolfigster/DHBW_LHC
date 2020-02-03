@@ -7,7 +7,9 @@ import infrastructure.security.device.Reader;
 import infrastructure.security.idcard.EmployeeIDCard;
 import infrastructure.security.idcard.IDCard;
 import infrastructure.security.idcard.VisitorIDCard;
+import infrastructure.security.management.EmployeeManagement;
 import infrastructure.security.management.IDCardManagement;
+import infrastructure.security.management.IROEmployeeManagement;
 
 public class Application {
 
@@ -90,11 +92,17 @@ public class Application {
 
     public static void useCase5() {
         System.out.println("Starting useCase5: Researcher accesses the experiments in the detector");
+        Researcher researcher01 = new Researcher("Reasearcher01");
+        //researcher01.getIroDetector().getExperimentList();
 
     }
 
     public static void useCase6() {
         System.out.println("Starting useCase6: HRAssistant has readable access to the employee data");
+        HRAssistant hrAssistant01 = new HRAssistant("HRAssistant01");
+        if(HRDepartment.instance.getIroEmployeeManagement().getEmployeeFromName("HRAssistant01").equals(hrAssistant01)) {
+            System.out.println("HRAssistant01 found");
+        }
 
     }
 
