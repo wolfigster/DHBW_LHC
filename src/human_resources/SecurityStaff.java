@@ -33,34 +33,11 @@ public class SecurityStaff extends Employee {
     }
 
     public EmployeeIDCard createEmployeeIDCard(Employee employee) {
-        EmployeeIDCard employeeIDCard = IDCardManagement.instance.createEmployeeIDCard();
-        ArrayList<Permission> permissionList = new ArrayList<>();
-        if(Researcher.class.equals(employee.getClass())) {
-            permissionList.add(Permission.ControlCenter);
-            permissionList.add(Permission.Researcher);
-            employeeIDCard.setPermissionList(permissionList);
-        } else if(ScientificAssistant.class.equals(employee.getClass())) {
-            permissionList.add(Permission.Researcher);
-            employeeIDCard.setPermissionList(permissionList);
-        } else if(SecurityOfficer.class.equals(employee.getClass())) {
-            permissionList.add(Permission.Security);
-            employeeIDCard.setPermissionList(permissionList);
-        } else if(SecurityStaff.class.equals(employee.getClass())) {
-            permissionList.add(Permission.Security);
-            permissionList.add(Permission.HR);
-            employeeIDCard.setPermissionList(permissionList);
-        } else if(ReceptionStaff.class.equals(employee.getClass())) {
-            permissionList.add(Permission.HR);
-            employeeIDCard.setPermissionList(permissionList);
-        }
-        employeeIDCard.setIrisStructure(employee.iris);
-        Reception.instance.getWriter().writePasswordOnIDCard(employeeIDCard, AES.encrypt("helloLHC2020"));
-        Reception.instance.getWriter().writeFingerprintOnEmployeeCard(employeeIDCard, MD5Hash.getMd5(employee.getName()));
-        return employeeIDCard;
+        return IDCardManagement.instance.createEmployeeIDCard(employee);
     }
 
     public void assignEmployeeIDCard(EmployeeIDCard employeeIDCard, Employee employee) {
-        employee.setIdCard(employeeIDCard);
+        IDCardManagement.instance.assignEmployeeIDCard(employeeIDCard, employee);
     }
 
     public void lockIDCard(IDCard idCard) {

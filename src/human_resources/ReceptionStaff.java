@@ -30,12 +30,10 @@ public class ReceptionStaff extends Employee {
     }
 
     public VisitorIDCard createIDCard(Person person) {
-        VisitorIDCard visitorIDCard = IDCardManagement.instance.getFreeVisitorIDCard();
-        Reception.instance.getWriter().writePasswordOnIDCard(visitorIDCard, AES.encrypt(Reception.instance.getReader().getTouchpad().read()));
-        return visitorIDCard;
+        return IDCardManagement.instance.createVisitorIDCard(person);
     }
 
     public void assignIDCard(VisitorIDCard visitorIDCard, Person person) {
-        person.setIdCard(visitorIDCard);
+        IDCardManagement.instance.assignIDCard(visitorIDCard, person);
     }
 }
