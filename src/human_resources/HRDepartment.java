@@ -1,13 +1,16 @@
 package human_resources;
 
+import infrastructure.security.management.EmployeeManagement;
 import infrastructure.security.management.IROEmployeeManagement;
 
-public class HRDepartment {
+public enum HRDepartment {
+    instance
+    ;
 
     private IROEmployeeManagement iroEmployeeManagement;
 
-    public HRDepartment(IROEmployeeManagement iroEmployeeManagement) {
-        this.iroEmployeeManagement = iroEmployeeManagement;
+    HRDepartment() {
+        this.iroEmployeeManagement = EmployeeManagement.instance;
     }
 
     public IROEmployeeManagement getIroEmployeeManagement() {
