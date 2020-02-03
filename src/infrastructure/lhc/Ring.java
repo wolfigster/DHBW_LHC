@@ -89,6 +89,15 @@ public class Ring extends Subscriber {
 
     @Subscribe
     public void receive(RunExperimentPartial experimentPartial) {
-
+        switch (experimentPartial.getExperimentScope()) {
+            case ESFull:
+                break;
+            case ES5:
+                break;
+            case ES10:
+                break;
+            case ES20:
+                break;
+        }
     }
 }

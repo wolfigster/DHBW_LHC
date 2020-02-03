@@ -2,12 +2,14 @@ package infrastructure.lhc;
 
 import com.google.common.eventbus.EventBus;
 import infrastructure.lhc.experiment.ExperimentScope;
+import infrastructure.lhc.experiment.RunExperimentPartial;
 
 public enum ControlCenter {
     instance
     ;
 
     private String roomID = "C01";
+    private Workplace workplace;
     private EventBus eventBus;
 
     ControlCenter() {
@@ -17,16 +19,7 @@ public enum ControlCenter {
     public void startExperiment() {}
 
     public void startExperiment(ExperimentScope scope) {
-        switch (scope) {
-            case ESFull:
-                break;
-            case ES5:
-                break;
-            case ES10:
-                break;
-            case ES20:
-                break;
-        }
+        eventBus.post(new RunExperimentPartial(scope));
     }
 
     public void addSubscriber(Subscriber subscriber) {
